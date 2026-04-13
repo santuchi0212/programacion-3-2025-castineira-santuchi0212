@@ -1,9 +1,13 @@
 from tortoise import Tortoise
 from fastapi import FastAPI
 
+import os
+
+DB_PATH = os.environ.get("DB_PATH", "sqlite://empleados.db")
+
 TORTOISE_ORM = {
     "connections": {
-        "default": "sqlite://empleados.db"
+        "default": DB_PATH
     },
     "apps": {
         "models": {
